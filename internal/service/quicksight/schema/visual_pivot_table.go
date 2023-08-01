@@ -147,7 +147,7 @@ func pivotTableVisualSchema() *schema.Schema {
 																	Elem: &schema.Resource{
 																		Schema: map[string]*schema.Schema{
 																			"direction":  stringSchema(true, validation.StringInSlice(quicksight.SortDirection_Values(), false)),
-																			"sort_paths": dataPathValueSchema(dataPathValueMaxItems), // https://docs.aws.amazon.com/quicksight/latest/APIReference/API_DataPathValue.html
+																			"sort_paths": dataPathValueSchema(false, dataPathValueMaxItems), // https://docs.aws.amazon.com/quicksight/latest/APIReference/API_DataPathValue.html
 																		},
 																	},
 																},

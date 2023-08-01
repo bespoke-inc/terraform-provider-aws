@@ -165,7 +165,7 @@ func visualPaletteSchema() *schema.Schema {
 					Elem: &schema.Resource{
 						Schema: map[string]*schema.Schema{
 							"color":            stringSchema(true, validation.StringMatch(regexp.MustCompile(`^#[A-F0-9]{6}$`), "")),
-							"element":          dataPathValueSchema(1), // https://docs.aws.amazon.com/quicksight/latest/APIReference/API_DataPathValue.html
+							"element":          dataPathValueSchema(true, 1), // https://docs.aws.amazon.com/quicksight/latest/APIReference/API_DataPathValue.html
 							"time_granularity": stringSchema(false, validation.StringInSlice(quicksight.TimeGranularity_Values(), false)),
 						},
 					},
@@ -175,10 +175,11 @@ func visualPaletteSchema() *schema.Schema {
 	}
 }
 
-func dataPathValueSchema(maxItems int) *schema.Schema {
+func dataPathValueSchema(required bool, maxItems int) *schema.Schema {
 	return &schema.Schema{ // https://docs.aws.amazon.com/quicksight/latest/APIReference/API_DataPathValue.html
 		Type:     schema.TypeList,
-		Required: true,
+		Required: required,
+		Optional: !required,
 		MinItems: 1,
 		MaxItems: maxItems,
 		Elem: &schema.Resource{
