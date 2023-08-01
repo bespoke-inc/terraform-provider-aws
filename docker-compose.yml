@@ -1,0 +1,19 @@
+version: '2.4'
+
+volumes:
+  go_build_cache_dir:
+    driver: local
+  terraform_local_plugins:
+    name: terraform_local_plugins
+    external: true
+
+services:
+  build-terraform-provider-aws:
+    image: goreleaser/goreleaser:v1.19.2
+    platform: linux/amd64
+    working_dir: /terraform-provider-aws
+    entrypoint: ["./build_provider_snapshot.sh"]
+    volumes:
+      - ./:/terraform-provider-aws
+      - terraform_local_plugins:/root/.terraform.d/plugins
+      - go_build_cache_dir:/root/.cache
