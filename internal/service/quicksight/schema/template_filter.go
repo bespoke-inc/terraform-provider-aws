@@ -145,7 +145,7 @@ func numericEqualityFilterSchema() *schema.Schema {
 				"null_option":          stringSchema(true, validation.StringInSlice(quicksight.FilterNullOption_Values(), false)),
 				"aggregation_function": aggregationFunctionSchema(false), // https://docs.aws.amazon.com/quicksight/latest/APIReference/API_AggregationFunction.html
 				"parameter_name":       parameterNameSchema(false),
-				"select_all_options":   stringSchema(false, validation.StringInSlice(quicksight.SelectAllValueOptions_Values(), false)),
+				"select_all_options":   stringSchema(false, validation.StringInSlice(quicksight.NumericFilterSelectAllOptions_Values(), false)),
 				"value": {
 					Type:     schema.TypeFloat,
 					Optional: true,
