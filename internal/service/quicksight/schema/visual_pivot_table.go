@@ -47,13 +47,13 @@ func pivotTableVisualSchema() *schema.Schema {
 												Schema: map[string]*schema.Schema{
 													"data_path_list": { // https://docs.aws.amazon.com/quicksight/latest/APIReference/API_DataPathValue.html
 														Type:     schema.TypeList,
-														Required: true,
+														Optional: true,
 														MinItems: 1,
 														MaxItems: 20,
 														Elem: &schema.Resource{
 															Schema: map[string]*schema.Schema{
-																"field_id":    stringSchema(true, validation.StringLenBetween(1, 512)),
-																"field_value": stringSchema(true, validation.StringLenBetween(1, 2048)),
+																"field_id":    stringSchema(false, validation.StringLenBetween(1, 512)),
+																"field_value": stringSchema(false, validation.StringLenBetween(1, 2048)),
 															},
 														},
 													},
