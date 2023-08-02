@@ -118,7 +118,7 @@ func categoryFilterSchema() *schema.Schema {
 												ValidateFunc: validation.StringLenBetween(1, 512),
 											},
 										},
-										"select_all_options": stringSchema(false, validation.StringInSlice(quicksight.SelectAllValueOptions_Values(), false)),
+										"select_all_options": stringSchema(false, validation.StringInSlice(quicksight.CategoryFilterSelectAllOptions_Values(), false)),
 									},
 								},
 							},
