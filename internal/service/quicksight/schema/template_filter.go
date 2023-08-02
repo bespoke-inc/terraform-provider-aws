@@ -93,7 +93,7 @@ func categoryFilterSchema() *schema.Schema {
 											MaxItems: 100000,
 											Elem: &schema.Schema{
 												Type:         schema.TypeString,
-												ValidateFunc: validation.StringLenBetween(1, 512),
+												ValidateFunc: validation.StringLenBetween(0, 512),
 											},
 										},
 										"select_all_options": stringSchema(false, validation.StringInSlice(quicksight.SelectAllValueOptions_Values(), false)),
