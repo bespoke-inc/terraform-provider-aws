@@ -298,7 +298,7 @@ func topBottomFilterSchema() *schema.Schema {
 					Optional: true,
 				},
 				"parameter_name":   parameterNameSchema(false),
-				"time_granularity": stringSchema(true, validation.StringInSlice(quicksight.TimeGranularity_Values(), false)),
+				"time_granularity": stringSchema(false, validation.StringInSlice(quicksight.TimeGranularity_Values(), false)),
 			},
 		},
 	}
