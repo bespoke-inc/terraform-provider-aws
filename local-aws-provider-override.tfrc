@@ -1,5 +1,5 @@
 provider_installation {
   dev_overrides {
-    "hashicorp/aws" = "/root/.terraform.d/plugins/registry.terraform.io/hashicorp/aws/9.9.9/linux_amd64/"
+    "hashicorp/aws" = "/root/.terraform.local/plugins/registry.terraform.io/hashicorp/aws/9.9.9/linux_amd64/"
   }
 }

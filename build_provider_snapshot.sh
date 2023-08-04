@@ -1,6 +1,6 @@
 #!/usr/bin/env bash
 
-LOCAL_PLUGINS_DIR=/root/.terraform.d/plugins/
+LOCAL_PLUGINS_DIR=/root/.terraform.local/plugins/
 LOCAL_REGISTRY_DIR="${LOCAL_PLUGINS_DIR}/registry.terraform.io/hashicorp/aws"
 
 goreleaser build --snapshot --single-target --clean --timeout 60m0s && \
